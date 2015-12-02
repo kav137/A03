@@ -1,0 +1,21 @@
+{
+  "name": "a03",
+  "version": "1.0.0",
+  "description": "hr client",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/kav137/a03.git"
+  },
+  "author": "kav",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/kav137/a03#readme",
+  "devDependencies": {
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "mysql": "^2.9.0"
+  }
+}
