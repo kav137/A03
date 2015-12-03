@@ -1,0 +1,16 @@
+Сотрудники
+главная
+
+<!-- {{template | json}} -->
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th ng-repeat="title in template.data.fields">{{title}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="row in template.data.rows">
+			<td ng-repeat="(key, value) in row">{{value}}</td>
+		</tr>
+	</tbody>
+</table>

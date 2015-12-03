@@ -1,0 +1,28 @@
+<div class="container" ng-controller="ContentCtrl">
+
+	<h1>Добро пожаловать, {{user.username}}! <button type="button" class="btn btn-danger" style="float: right" ng-click="quit()">Выйти</button></h1>
+	<hr>
+
+	<nav class="navbar navbar-default" role="navigation">
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li ng-repeat="template in ui.templates" 
+					ng-class="{active : template.selected}"
+					ng-click="ui.select(template)"><a href="#">{{template.config.navPill.title}}</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="col-md-3">
+		<div ng-repeat="template in ui.templates" ng-show="template.selected">
+			<ng-include src="template.config.sideContent.template"></ng-include>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div ng-repeat="template in ui.templates" ng-show="template.selected">
+			<ng-include src="template.config.mainContent.template"></ng-include>
+		</div>
+	</div>
+	
+</div>
