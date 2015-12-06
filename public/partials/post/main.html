@@ -1,2 +1,12 @@
-Должности
-главная
+<table class="table table-hover">
+	<thead>
+		<tr class="bg-primary">
+			<th ng-repeat="title in template.data.fields">{{title | translate}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="row in template.data.rows">
+			<td ng-repeat="(key, value) in row">{{value}}</td>
+		</tr>
+	</tbody>
+</table>

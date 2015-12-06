@@ -1,2 +1,63 @@
-Сотрудники 
-боковая
+<a class="btn btn-primary" data-toggle="modal" href='#modal-id' ng-click="initEmp()">Добавить сотрудника</a>
+
+<div class="modal fade" id="modal-id">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Добавление сотрудника</h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<input type="{{propParams.type}}" 
+								ng-model="propParams.value"
+								class="form-control" 
+								required="required" 
+								placeholder="{{propName | translate}}"
+								ng-repeat="(propName, propParams) in emp.textProperties"/>
+
+						<div class="radio" ng-repeat="(propName, propParam) in emp.radioProperties">
+							{{ propName | translate }} : 
+							<label ng-repeat="val in propParam.values">
+								<input type="radio" 
+										name="propName" 
+										value="{{val}}"
+										ng-model="propParam.value">
+								{{val}}
+							</label>
+						</div>
+
+						<select 
+							class="form-control"
+							ng-repeat="(propName, propParams) in emp.selectProperties"
+							ng-model="propParams.value"
+							ng-options="value.post_descr for value in propParams.values">
+						</select>
+
+						<div ng-show="(emp.selectProperties.post_id.value.post_id === 8) ||
+						(emp.selectProperties.post_id.value.post_id  === 9) ||
+						(emp.selectProperties.post_id.value.post_id  === 10) ||
+						(emp.selectProperties.post_id.value.post_id  === 11)">
+							<div ng-repeat="(propName, propParams) in emp.nonRequiredProperties">
+								<label ng-show="propParams.label"> {{propParams.label}} </label>
+								<input type="{{propParams.type}}" 
+									ng-model="propParams.value"
+									class="form-control" 
+									required="required" 
+									placeholder="{{propName | translate}}"
+									/>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+							<button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addEmployee()">Добавить</button>
+						</div>
+					</div>
+				
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

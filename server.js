@@ -47,16 +47,25 @@ app.get('/auth', function (req, res){
 	})
 })
 
-app.get('/db', function (req, res){
-	var query = req.headers.query;
-	connection.query(query, function (err, rows, fields){
-		console.log('performing query...', query);
-		res.json({
-			rows : rows,
-			fields : fields
+app.route('/db')
+	.get(function (req, res){
+		var query = req.headers.query;
+		connection.query(query, function (err, rows, fields){
+			console.log('performing query...', query);
+			res.json({ 
+				rows : rows,
+				fields : fields
+			})
 		})
+	}).
+	post(function (req, res){
+		var query = JSON.parse(Object.keys(req.body)[0]).query; //ta-dam!)
+		connection.query(query, function (err, rows, fields){
+			console.log('performing query...', query);
+			res.end();
+		})
+		console.log(JSON.parse(query).query)
 	})
-})
 
 app.get('/:page?', function (req, res) {
 	res.redirect('/');
