@@ -1,6 +1,6 @@
 <div class="container" ng-controller="ContentCtrl">
 
-	<h1>Добро пожаловать, {{user.username}}! <button type="button" class="btn btn-danger" style="float: right" ng-click="quit()">Выйти</button></h1>
+	<h1>Добро пожаловать, директор! <button type="button" class="btn btn-danger" style="float: right" ng-click="quit()">Выйти из профиля</button></h1>
 	<hr>
 
 	<nav class="navbar navbar-default" role="navigation">
@@ -10,6 +10,18 @@
 				<li ng-repeat="template in ui.templates" 
 					ng-class="{active : template.selected}"
 					ng-click="ui.select(template)"><a href="#">{{template.config.navPill.title}}</a></li>
+				<li>
+					<a href="" title="">Договоры</a>
+				</li>
+				<li>
+					<a href="" title="">Контакты</a>
+				</li>
+				<li>
+					<a href="" title="">Отделы</a>
+				</li>
+				<li>
+					<a href="" title="">Кандидаты</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
